@@ -1,7 +1,298 @@
 <!DOCTYPE html>
-<html>
-  <body>
-    <h1>Welcome to Abby's Analytics Portfolio</h1>
-    <p>More projects coming soon!</p>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Abby | Analytics & Ops Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #fffafc;
+      --card: #ffffff;
+      --accent: #ff9fb6;
+      --text-main: #222222;
+      --text-muted: #666666;
+      --border: #f1dbe3;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+      --radius-lg: 18px;
+      --radius-pill: 999px;
+      --font-main: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-main);
+      background: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .shell {
+      width: 100%;
+      max-width: 900px;
+      background: transparent;
+    }
+
+    header {
+      background: var(--card);
+      box-shadow: var(--shadow);
+      border-radius: 24px;
+      padding: 24px 24px 20px;
+      margin-bottom: 24px;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: #ffe3ec;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+    }
+
+    .header-text h1 {
+      font-size: 1.6rem;
+      margin-bottom: 4px;
+    }
+
+    .header-text p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .pill-row {
+      margin-top: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .pill {
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      background: #fff1f6;
+      border: 1px solid #ffd3e3;
+      color: #cc4b73;
+    }
+
+    nav {
+      margin-top: 10px;
+      display: flex;
+      gap: 14px;
+      font-size: 0.9rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text-muted);
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    nav a:hover::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--accent);
+      border-radius: 999px;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 20px;
+    }
+
+    @media (max-width: 720px) {
+      main {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .card {
+      background: var(--card);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius-lg);
+      padding: 20px 18px;
+      border: 1px solid var(--border);
+    }
+
+    .card h2 {
+      font-size: 1.05rem;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .projects-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .project-card {
+      border-radius: 16px;
+      padding: 12px 12px;
+      background: #fff;
+      border: 1px solid #f5e1ea;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 8px;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.08s ease, box-shadow 0.08s ease, border-color 0.08s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+      border-color: #ffccdd;
+    }
+
+    .project-main {
+      font-size: 0.9rem;
+    }
+
+    .project-title {
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .project-tags {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .project-pill {
+      font-size: 0.75rem;
+      padding: 2px 8px;
+      border-radius: var(--radius-pill);
+      border: 1px solid #ffd5e6;
+      background: #fff7fa;
+      white-space: nowrap;
+    }
+
+    .small-list {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      list-style: none;
+      margin-top: 4px;
+    }
+
+    .small-list li::before {
+      content: "• ";
+      color: var(--accent);
+    }
+
+    .contact-links {
+      margin-top: 12px;
+      font-size: 0.9rem;
+    }
+
+    .contact-links a {
+      color: #cc4b73;
+      text-decoration: none;
+    }
+
+    .contact-links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header>
+      <div class="avatar">🧃</div>
+      <div class="header-text">
+        <h1>Abby</h1>
+        <p>Analytics & operations enthusiast who likes turning messy data into calm, useful decisions.</p>
+        <div class="pill-row">
+          <span class="pill">MBAN @ UBC Sauder</span>
+          <span class="pill">Optimization & planning</span>
+          <span class="pill">Cute dashboards only ✨</span>
+        </div>
+        <nav>
+          <a href="#projects">Projects</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="card" id="projects">
+        <h2>Featured projects</h2>
+        <p>Real projects that blend analytics, optimization, and storytelling.</p>
+
+        <div class="projects-list">
+          <a class="project-card" href="starlight-meal.html">
+            <div class="project-main">
+              <div class="project-title">Starlight Meal Optimizer</div>
+              <div class="project-tags">
+                Optimization · Python / Gurobi · Operations
+              </div>
+              <ul class="small-list">
+                <li>Modeled school meal planning with cost & nutrition constraints</li>
+                <li>Built a tool to explore trade-offs and scenario planning</li>
+              </ul>
+            </div>
+            <div class="project-pill">View case →</div>
+          </a>
+
+          <!-- Add more projects here later -->
+          <!-- Example:
+          <a class="project-card" href="bmo-tracker.html">
+            ...
+          </a>
+          -->
+        </div>
+      </section>
+
+      <aside class="card" id="about">
+        <h2>About</h2>
+        <p>
+          I'm a Master of Business Analytics student who loves working at the
+          intersection of data, operations, and product planning.
+        </p>
+        <p>
+          I enjoy building things that people actually use: trackers, dashboards,
+          and models that make decisions clearer and days a little easier.
+        </p>
+
+        <div id="contact" class="contact-links">
+          <div><strong>Contact</strong></div>
+          <div>
+            GitHub: <a href="https://github.com/YOUR-USERNAME" target="_blank">@YOUR-USERNAME</a><br />
+            LinkedIn: <a href="https://www.linkedin.com/in/YOUR-LINKEDIN" target="_blank">Your Name</a><br />
+            Email: <a href="mailto:your.email@example.com">your.email@example.com</a>
+          </div>
+        </div>
+      </aside>
+    </main>
+  </div>
+</body>
 </html>
