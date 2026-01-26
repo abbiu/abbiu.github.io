@@ -109,4 +109,54 @@
 </head>
 <body>
   <div class="shell">
-    <a clas
+  <div class="section">
+  <h2>Problem</h2>
+  <p>
+    A streaming platform needs to understand how different users engage with content so it can reduce churn
+    and focus retention efforts where they matter most. Treating all users the same leads to wasted campaigns
+    and missed opportunities, especially when some users binge, some drift, and others quietly disengage.
+  </p>
+</div>
+
+<div class="section">
+  <h2>Approach</h2>
+  <ul>
+    <li>
+      Defined <strong>RFM-style features</strong>:
+      <code>Recency</code> (how recently a user watched),
+      <code>Frequency</code> (how often),
+      and a <code>Monetary / Value proxy</code> (engagement intensity or spend-related signal).
+    </li>
+    <li>Standardized features and grouped users into interpretable segments using rule-based bins or clustering.</li>
+    <li>Labeled segments with clear, human-readable names to support decision-making.</li>
+    <li>Analyzed segment behavior to identify churn risk and engagement patterns.</li>
+  </ul>
+</div>
+
+<div class="section">
+  <h2>What I contributed</h2>
+  <ul>
+    <li>Designed the segmentation framework and feature definitions from raw user-level data.</li>
+    <li>Balanced interpretability and analytical rigor so results could be used by non-technical stakeholders.</li>
+    <li>Translated segment outputs into concrete business actions (retention, win-back, onboarding).</li>
+  </ul>
+</div>
+
+<div class="section">
+  <h2>Results &amp; impact</h2>
+  <div class="highlight-box">
+    The segmentation revealed distinct user groups with different engagement and churn risk profiles.
+    It enabled targeted strategies such as <strong>win-back campaigns</strong> for at-risk users and
+    <strong>nurture flows</strong> for new or growing users. The framework is reusable for subscription
+    products or any business with repeat-behavior data.
+  </div>
+</div>
+
+<div class="section">
+  <h2>Tech stack</h2>
+  <p>
+    Python or R (pandas/tidyverse), basic clustering or rule-based segmentation,
+    Tableau (or similar) for visualization.
+  </p>
+</div>
+
